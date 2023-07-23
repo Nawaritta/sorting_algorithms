@@ -52,7 +52,7 @@ void heap_sort(int *array, size_t size)
 	for (root = size / 2 - 1; root >= 0; root--)
 		heap_build(array, root, size - 1, size);
 
-	for (root = size - 1; root >= 0; root--)
+	for (root = size - 1; root > 0; root--)
 	{
 		tmp = array[root];
 		array[root] = array[0];
