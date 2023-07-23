@@ -11,7 +11,7 @@ void counting_sort(int *array, size_t size)
 	size_t i, k, Max;
 
 
-	if (array == NULL || size == 0)
+	if (array == NULL || size < 2)
 		return;
 	max = array[0];
 	for (i = 1; i < size; i++)
