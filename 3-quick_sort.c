@@ -1,8 +1,7 @@
 #include "sort.h"
 
 /**
- * quick_sort_rec - recursive function to sort elements
-                using the quick sorting algorithm.
+ * quick_sort_rec - recursive function of the quick sorting algorithm using the Lomuto Partition scheme (the pivot is the last element of the partition).
  * @array: pointer to the array to sort.
  * @size: the size of the array to sort.
  * @partition: pointer to the partition to sort.
