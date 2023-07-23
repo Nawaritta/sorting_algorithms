@@ -1,9 +1,14 @@
 #include "sort.h"
-
+/**
+ * merge - helping function that merges the partitions
+ *@leftArr: left partition
+ *@rightArr: right partition
+ *@array: the array to sort
+ *@size:the size of the array to sort
+ */
 void merge(int *leftArr, int *rightArr, int *array, size_t size)
 {
-	size_t leftSize = size / 2;
-	size_t rightSize = size - leftSize;
+	size_t leftSize = size / 2, rightSize = size - leftSize;
 	size_t i = 0, lef = 0, rig = 0;
 
 	printf("Merging...\n[left]: ");
@@ -27,32 +32,27 @@ void merge(int *leftArr, int *rightArr, int *array, size_t size)
 	while (lef < leftSize && rig < rightSize)
 	{
 		if (leftArr[lef] < rightArr[rig])
-		{
-
 			array[i++] = leftArr[lef++];
-		} else
-		{
-
+		else
 			array[i++] = rightArr[rig++];
-		}
 	}
-	while(lef < leftSize)
+	while (lef < leftSize)
 		array[i++] = leftArr[lef++];
 	while (rig < rightSize)
 		array[i++] = rightArr[rig++];
-
 	free(leftArr);
 	printf("[Done]: ");
 	for (i = 0; i < size; i++)
-	{
 		if (i < size - 1)
 			printf("%d, ", array[i]);
 		else
 			printf("%d\n", array[i]);
-	}
-
 }
-
+/**
+ * merge_sort - sorts an array of integers using the merge sorting algorithm
+ *@array: a pointer to the array to sort
+ *@size:the size of the array to sort
+ */
 void merge_sort(int *array, size_t size)
 {
 	size_t middle;
@@ -64,7 +64,7 @@ void merge_sort(int *array, size_t size)
 		return;
 	middle = size / 2;
 
-	leftArr = (int*) malloc(sizeof(int) * size);
+	leftArr = (int *) malloc(sizeof(int) * size);
 	if (!leftArr)
 		return;
 	rightArr = leftArr + middle;
