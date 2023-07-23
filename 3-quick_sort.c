@@ -1,7 +1,9 @@
 #include "sort.h"
 
 /**
- * quick_sort_rec - recursive function of the quick sorting algorithm using the Lomuto Partition scheme (the pivot is the last element of the partition).
+ * quick_sort_rec - recursive function of the quick sorting algorithm
+ *                  using the Lomuto Partition scheme
+ *                  (the pivot is the last element of the partition).
  * @array: pointer to the array to sort.
  * @size: the size of the array to sort.
  * @partition: pointer to the partition to sort.
@@ -30,24 +32,23 @@ void quick_sort_rec(int *array, size_t size, int *partition, size_t part_size)
 			tmp = partition[cursor];
 			partition[cursor++] = partition[current];
 			partition[current] = tmp;
-		      	print_array(array, size);
+			print_array(array, size);
 		}
 	}
-
 	quick_sort_rec(array, size, partition, cursor - 1);
 	partition += cursor;
 	part_size -= cursor;
-      	quick_sort_rec(array, size, partition, part_size);
+	quick_sort_rec(array, size, partition, part_size);
 }
 
 /**
  * quick_sort - sorts an array of integers in ascending order
-                using the quick sorting algorithm.
+ *              using the quick sorting algorithm.
  * @array: The array to sort.
  * @size: the size of the array to sort.
  */
 
 void quick_sort(int *array, size_t size)
 {
-       	quick_sort_rec(array, size, array, size);
+	quick_sort_rec(array, size, array, size);
 }

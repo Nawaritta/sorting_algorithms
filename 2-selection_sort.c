@@ -1,7 +1,7 @@
 #include "sort.h"
 /**
  *selection_sort - sorts an array of integers in ascending order
-                   using selection sorting algorithm
+ *                using selection sorting algorithm
  * @array: the array of integers to sort
  * @size: the array size
  */
@@ -10,6 +10,9 @@ void selection_sort(int *array, size_t size)
 
 	size_t i, j, min_index;
 	int tmp;
+
+	if (array == NULL || size < 2)
+		return;
 
 	for (i = 0; i < size; i++)
 	{
