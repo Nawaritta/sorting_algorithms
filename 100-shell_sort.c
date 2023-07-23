@@ -1,53 +1,36 @@
 #include "sort.h"
 /**
- * insertion_sort_list - sorts a doubly linked list in ascending order
-                         using the insert sorting algorithm.
- * @list: The doubly linked list to sort.
+ * shell_sort - sorts an array of integers in ascending order
+ *              using Knuth sequence.
+ * @array: pointer to the array to be sorted.
+ * @size: the size of the array.
  */
-void insertion_sort_list(listint_t **list)
+void shell_sort(int *array, size_t size)
 {
-	listint_t *current, *cursor, *tmp;
-	int insert = 0;
+	size_t interval = 1, i, j;
+	int tmp;
 
-	if (list == NULL || *list == NULL || (*list)->next == NULL)
+
+	if (array == NULL || size < 2)
 		return;
 
-	current = (*list)->next;
+	while (interval <= size / 3)
+		interval = interval * 3 + 1;
 
-	while (current != NULL)
+	while (interval > 0)
 	{
-		tmp = current;
-		if (current->prev != NULL)
-			cursor = current->prev;
-
-		while (cursor)
+		for (i = interval; i < size; i++)
 		{
-			if (cursor->n > current->n)
+			tmp = array[i];
+			j = i;
+			while (j >= interval && array[j - interval] > tmp)
 			{
-				insert = 1;
-				cursor->next = current->next;
-				if (current->next != NULL)
-					current->next->prev = cursor;
-
+				array[j] = array[j - interval];
+				j -= interval;
 			}
-			if (insert)
-			{
-				current->next = cursor;
-				current->prev = cursor->prev;
-				if (cursor->prev != NULL)
-					cursor->prev->next = current;
-
-				cursor->prev = current;
-				insert = 0;
-
-				if ((*list)->prev != NULL)
-					(*list) = (*list)->prev;
-				print_list(*list);
-			}
-			cursor = cursor->prev;
+			array[j] = tmp;
 		}
-
-			current = tmp->next;
+		print_array(array, size);
+		interval = (interval - 1) / 3;
 	}
-
 }
