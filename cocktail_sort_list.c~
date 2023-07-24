@@ -37,7 +37,7 @@ void cocktail_sort_list(listint_t **list)
 	if (!list || !(*list) || (*list)->next == NULL)
 		return;
 
-	while (right->next)
+	while(right->next)
 		right = right->next;
 
 	while (!sorted)
@@ -47,8 +47,6 @@ void cocktail_sort_list(listint_t **list)
 			if (traversed->n > traversed->next->n)
 			{
 				swapNodes(list, traversed, traversed->next);
-				if (traversed->prev == right)
-					right = traversed;
 
 			} else
 				traversed = traversed->next;
