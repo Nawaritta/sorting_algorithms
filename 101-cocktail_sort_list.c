@@ -52,7 +52,7 @@ void cocktail_sort_list(listint_t **list)
 		}
 		traversed += 1;
 		right = left;
-		while (right->prev)
+		while (right->prev && len > 2)
 		{
 			if (right->n < right->prev->n)
 			{
