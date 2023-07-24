@@ -9,6 +9,7 @@
 
 void swapNodes(listint_t **list, listint_t *a, listint_t *b)
 {
+
 	if (a->prev)
 		a->prev->next = b;
 	else
@@ -57,7 +58,6 @@ void cocktail_sort_list(listint_t **list)
 			if (right->n < right->prev->n)
 			{
 				swapNodes(list, right->prev, right);
-				print_list(*list);
 
 			} else
 				right = right->prev;
