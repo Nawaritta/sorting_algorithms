@@ -53,6 +53,9 @@ void cocktail_sort_list(listint_t **list)
 			} else
 				traversed = traversed->next;
 		}
+		if (left == right || right->next == left)
+			break;
+
 		while (traversed != left)
 		{
 			if (traversed->n < traversed->prev->n)
@@ -66,8 +69,6 @@ void cocktail_sort_list(listint_t **list)
 		}
 		left = left->next;
 		right = right->prev;
-		if (left == right || right->next == left)
-			break;
 	}
 
 }
