@@ -1,6 +1,13 @@
 #include "sort.h"
 
-void swapNodes(listint_t**list, listint_t *a, listint_t *b)
+/**
+ * swapNodes - swaps two adjacent nodes in a doubly linked list
+ * @list: a doubly linked list
+ * @a: the node on the left
+ * @b: the node on the right
+ */
+
+void swapNodes(listint_t **list, listint_t *a, listint_t *b)
 {
 	if (a->prev)
 		a->prev->next = b;
@@ -8,7 +15,7 @@ void swapNodes(listint_t**list, listint_t *a, listint_t *b)
 		*list = b;
 	if (b->next)
 		b->next->prev = a;
-      	b->prev = a->prev;
+	b->prev = a->prev;
 	a->next = b->next;
 	b->next = a;
 	a->prev = b;
@@ -17,7 +24,7 @@ void swapNodes(listint_t**list, listint_t *a, listint_t *b)
 /**
  *  cocktail_sort_list - sorts elements of a doubly linked list
  *                       in ascending order using cocktail sort scheme
-                         (a variation of the bubble sort algorithm)
+ *                       (a variation of the bubble sort algorithm)
  * @list: a double pointer to the doubly linked list to be sorted
  */
 void cocktail_sort_list(listint_t **list)
@@ -37,7 +44,7 @@ void cocktail_sort_list(listint_t **list)
 
 			if (left->n > left->next->n)
 			{
-				swapNodes(list, left,left->next);
+				swapNodes(list, left, left->next);
 				print_list(*list);
 
 			} else
