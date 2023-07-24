@@ -53,7 +53,6 @@ void cocktail_sort_list(listint_t **list)
 			} else
 				left = left->next;
 		}
-		swaps = 0;
 		traversed += 1;
 		right = left;
 		while (right->prev)
