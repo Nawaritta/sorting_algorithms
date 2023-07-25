@@ -8,8 +8,11 @@
  */
 void counting_s(int *array, size_t size, int exp)
 {
-	int *count_s = malloc(size * sizeof(int)), bins[10] = {0}, j;
+	int *count_s = malloc(size * sizeof(int)), bins[10], j;
 	size_t i;
+
+	for (j = 0; j < 10; j++)
+		bins[j] = 0;
 
 	if (count_s == NULL)
 		return;
