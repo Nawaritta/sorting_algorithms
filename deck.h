@@ -3,6 +3,8 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+
 typedef enum kind_e
 {
 	SPADE = 0,
