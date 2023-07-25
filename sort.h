@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+
 /**
  * struct listint_s - Doubly linked list node
  *
@@ -16,6 +17,12 @@ typedef struct listint_s
 	struct listint_s *prev;
 	struct listint_s *next;
 } listint_t;
+
+
+/*________ Helper functions _______________*/
+
+void swap(int a, int b);
+int maximum(int *array, size_t size);
 
 
 /*____________ Mandatory tasks ___________ */

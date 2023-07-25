@@ -9,6 +9,7 @@
 
 void swapNodes(listint_t **list, listint_t *a, listint_t *b)
 {
+	listint_t *c;
 
 	if (a->prev)
 		a->prev->next = b;
@@ -16,10 +17,13 @@ void swapNodes(listint_t **list, listint_t *a, listint_t *b)
 		*list = b;
 	if (b->next)
 		b->next->prev = a;
+
 	b->prev = a->prev;
-	a->next = b->next;
-	b->next = a;
 	a->prev = b;
+	c = b;
+	a->next = b->next;
+	c->next = a;
+
 	print_list(*list);
 }
 

@@ -1,4 +1,22 @@
 #include "sort.h"
+
+/**
+ * maximum - gets the maximun value of an array of integers
+ * @array: the array to get the maximum value of
+ * @size: the array size.
+ * Return: the maximum value of all the array elements
+ */
+
+int maximum(int *array, size_t size)
+{
+	int max = array[0];
+	size_t i;
+
+	for (i = 1; i < size; i++)
+		max = (array[i] > max) ? array[i] : max;
+	return (max);
+}
+
 /**
  * counting_sort - sorts an arrays of integers in an ascending order
  *                 using the counting sort algorithm
@@ -13,9 +31,9 @@ void counting_sort(int *array, size_t size)
 
 	if (array == NULL || size < 2)
 		return;
-	max = array[0];
-	for (i = 1; i < size; i++)
-		max = (array[i] > max) ? array[i] : max;
+
+	max = maximum(array, size);
+
 	countingArr = (int *) malloc(sizeof(int) * (max + 1));
 	if (!countingArr)
 		return;
