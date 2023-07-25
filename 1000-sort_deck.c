@@ -20,16 +20,16 @@ void swap_cards(deck_node_t **deck, deck_node_t *card_1, deck_node_t *card_2)
 }
 
 /**
- * dummyval - assignes a dummy values to the cards to help sorting the cards
+ * dummyVal - assignes a dummy values to the cards to help sorting the cards
  *             We choose to add:
  *             => Nothing to Spade cards, Spade range is [1 - 13]
  *             =>  20 to Heart cards, Heart range is [21 - 33]
  *             =>  40 to Club cards, Club range is [41 - 43]
  *             =>  60 to Diamond cards, Diamond range is [61 - 73]
-
+ *
  *@node: The card to check
  *
- *Retun: an integer from 1 to 73
+ *Return: an integer from 1 to 73
  */
 int dummyVal(deck_node_t *node)
 {
@@ -65,9 +65,12 @@ int dummyVal(deck_node_t *node)
 		dummy = value;
 		break;
 	}
-	return dummy;
+	return (dummy);
 }
-
+/**
+ * sort_deck - sorts a deck of cards From Ace to King - From Spades to Diamonds
+ * @deck: double pointer to the deck of cart to be sorted
+ */
 void sort_deck(deck_node_t **deck)
 {
 	deck_node_t *cursor = NULL;
