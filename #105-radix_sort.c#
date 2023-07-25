@@ -1,0 +1,58 @@
+#include <stdbool.h>
+#include "sort.h"
+
+/**
+ * counting_sort - Do counting sort based on the significant digit.
+ * @array: Pointer to the array of integers.
+ * @size: the size of the 
+ * @exp: The current significant digit for counting sort.
+ *
+ * This function performs counting sort based on the current significant digit `exp`.
+ * It uses a counting array to count the occurrences of each digit and then rearranges
+ * the elements in the output array accordingly. The final sorted array is updated
+ * in-place in the input array.
+ */
+void counting_sort(int *array, size_t size, int exp)
+{
+	int *output = malloc(size * sizeof(int));
+	if (output == NULL)
+		return;
+
+	int count[10] = {0};
+
+	for (size_t i = 0; i < size; ++i)
+		count[(array[i] / exp) % 10]++;
+
+	for (int i = 1; i < 10; ++i)
+		count[i] += count[i - 1];
+
+	for (int i = size - 1; i >= 0; --i) {
+		output[count[(array[i] / exp) % 10] - 1] = array[i];
+		count[(array[i] / exp) % 10]--;
+	}
+
+	for (size_t i = 0; i < size; ++i)
+		array[i] = output[i];
+
+	free(output);
+}
+
+/**
+ * radix_sort - Sorts an array of integers in ascending order using Radix sort.
+ * @array: Pointer to the array of integers to be sorted.
+ * @size: Number of elements in the array.
+ *
+ * This function sorts the input array of integers in ascending order using the
+ * LSD (Least Significant Digit) Radix sort algorithm. It iterates through all
+ * significant digits and performs counting sort on each digit. The final sorted
+ * array is updated in-place in the input array. The function prints the array
+ * each time a new significant digit is processed using the print_array function.
+ */
+void radix_sort(int *array, size_t size) {
+	int max = maximum(array, size);
+
+	for (int exp = 1; max / exp > 0; exp *= 10) {
+		counting_sort(array, size, exp);
+		print_array(array, size);
+	}
+}
