@@ -5,15 +5,15 @@
  * @a: the first integer to be swapped.
  * @b: the second integer to be swapped.
  */
-void swap(int a, int b)
+void swap(int *a, int *b)
 {
 	int tmp;
 
 	if (a != b)
 	{
-		tmp = a;
-		a = b;
-		b = tmp;
+		tmp = *a;
+		*a = *b;
+		*b = tmp;
 	}
 }
 
@@ -36,7 +36,8 @@ void bitonic_updown(int ascend, int *subarray, size_t subsize)
 	{
 		if ((subarray[i] > subarray[i + half]) == ascend)
 		{
-			swap(subarray[i], subarray[i + half]);
+			swap(subarray + i, subarray + (i + half));
+
 		}
 	}
 }
@@ -86,6 +87,7 @@ void bitonic_recursive(int ascend, int *subarray, size_t subsize, size_t size)
 
 	printf("Merging [%lu/%lu] ", subsize, size);
 	printf("(%s):\n", (ascend ? "UP" : "DOWN"));
+
 	print_array(subarray, subsize);
 
 	bitonic_recursive(1, sub1, subsize / 2, size);
@@ -94,6 +96,7 @@ void bitonic_recursive(int ascend, int *subarray, size_t subsize, size_t size)
 
 	printf("Result [%lu/%lu] ", subsize, size);
 	printf("(%s):\n", (ascend ? "UP" : "DOWN"));
+
 	print_array(subarray, subsize);
 }
 

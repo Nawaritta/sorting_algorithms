@@ -6,23 +6,18 @@
  * @a: the node on the left
  * @b: the node on the right
  */
-
 void swapNodes(listint_t **list, listint_t *a, listint_t *b)
 {
-	listint_t *c;
-
 	if (a->prev)
 		a->prev->next = b;
 	else
 		*list = b;
 	if (b->next)
 		b->next->prev = a;
-
 	b->prev = a->prev;
-	a->prev = b;
-	c = b;
 	a->next = b->next;
-	c->next = a;
+	b->next = a;
+	a->prev = b;
 
 	print_list(*list);
 }

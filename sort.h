@@ -21,7 +21,7 @@ typedef struct listint_s
 
 /*________ Helper functions _______________*/
 
-void swap(int a, int b);
+void swap(int *a, int *b);
 int maximum(int *array, size_t size);
 
 
