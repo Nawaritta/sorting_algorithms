@@ -61,9 +61,6 @@ int dummyVal(deck_node_t *node)
 	case DIAMOND:
 		dummy = value + 60;
 		break;
-	default:
-		dummy = value;
-		break;
 	}
 	return (dummy);
 }
