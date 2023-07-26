@@ -1,6 +1,6 @@
 #include "deck.h"
 /**
- * swap_cards - swaps two cards from a deck of cards.
+ * swap_cards - swaps two adjacent cards from a deck of cards.
  * @deck: a doubly linked list representing the cards deck
  * @card_1: the node on the left
  * @card_2: the node on the right
