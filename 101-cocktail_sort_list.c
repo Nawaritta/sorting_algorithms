@@ -33,7 +33,7 @@ void cocktail_sort_list(listint_t **list)
 	listint_t *check = *list;
 	size_t range = 0, traversed;
 
-	if (!list || !(*list) || (*list)->next == NULL)
+	if (list == NULL || !(*list) || (*list)->next == NULL)
 		return;
 
 	while (check)
