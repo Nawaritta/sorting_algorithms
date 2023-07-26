@@ -42,7 +42,7 @@ void cocktail_sort_list(listint_t **list)
 		range++;
 	}
 	check = *list;
-	while (range > 1)
+	while (range)
 	{
 		traversed = 0;
 		range--;
