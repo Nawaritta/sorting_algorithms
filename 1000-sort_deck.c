@@ -1,6 +1,6 @@
 #include "deck.h"
 /**
- * swap_cards - swaps two adjacent cards from a deck of cards.
+ * swap_cards - swaps two cards from a deck of cards.
  * @deck: a doubly linked list representing the cards deck
  * @card_1: the node on the left
  * @card_2: the node on the right
@@ -76,6 +76,7 @@ void sort_deck(deck_node_t **deck)
 	deck_node_t *cursor = NULL;
 	int range = 52, index;
 
+
 	cursor = *deck;
 	while (range > 1)
 	{
@@ -86,7 +87,6 @@ void sort_deck(deck_node_t **deck)
 			if (dummyVal(cursor) > dummyVal(cursor->next))
 			{
 				swap_cards(deck, cursor, cursor->next);
-				cursor = cursor->prev;
 			}
 			else
 				cursor = cursor->next;
@@ -98,7 +98,7 @@ void sort_deck(deck_node_t **deck)
 			if (dummyVal(cursor) < dummyVal(cursor->prev))
 			{
 				swap_cards(deck, cursor->prev, cursor);
-				cursor = cursor->next;
+
 			}
 			else
 				cursor = cursor->prev;
