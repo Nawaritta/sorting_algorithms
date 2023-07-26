@@ -30,12 +30,13 @@ void swapNodes(listint_t **list, listint_t *a, listint_t *b)
  */
 void cocktail_sort_list(listint_t **list)
 {
-	listint_t *check = *list;
+	listint_t *check;
 	size_t range = 0, traversed;
 
-	if (list == NULL || !(*list) || (*list)->next == NULL)
+	if (!list || !(*list) || (*list)->next == NULL)
 		return;
 
+	check = *list;
 	while (check)
 	{
 		check = check->next;
