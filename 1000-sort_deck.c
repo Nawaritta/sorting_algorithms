@@ -76,7 +76,6 @@ void sort_deck(deck_node_t **deck)
 	deck_node_t *cursor = NULL;
 	int range = 52, index;
 
-
 	cursor = *deck;
 	while (range > 1)
 	{

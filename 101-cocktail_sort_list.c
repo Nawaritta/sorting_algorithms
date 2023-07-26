@@ -45,7 +45,7 @@ void cocktail_sort_list(listint_t **list)
 	while (range)
 	{
 		traversed = 0;
-		range--;
+
 		while (check->next && traversed < range)
 		{
 			if (check->n > check->next->n)
@@ -55,6 +55,7 @@ void cocktail_sort_list(listint_t **list)
 			traversed++;
 		}
 		traversed = 0;
+		range--;
 		while (check->prev && traversed < range)
 		{
 			if (check->n < check->prev->n)
